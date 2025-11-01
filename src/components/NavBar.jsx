@@ -27,11 +27,11 @@ function Navbar() {
         </ul>
 
         <div className="ml-auto pr-3">
-          <Link to="auth/" className="text-amber-500 hover:text-amber-100">
+          <Link to="/Login" className="text-amber-500 hover:text-amber-100">
             Login
           </Link>
           <Link
-            to="auth/"
+            to="/Signup"
             className="text-amber-100 rounded p-2 px-2 mx-2 bg-orange-500 hover:text-gray-300"
           >
             Signup
