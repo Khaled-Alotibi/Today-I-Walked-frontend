@@ -1,3 +1,4 @@
+import { Post } from "@/components/Post";
 import Reel from "@/components/Reel";
 import { CirclePlus } from "lucide-react";
 
@@ -60,9 +61,7 @@ function Feed() {
         <Reel Posts={mockPosts} />
       </div>
       <div className="fixed bottom-3 right-3">
-        <button className="bg-orange-500 rounded-4xl text-amber-100 cursor-pointer">
-          <CirclePlus size={40} />
-        </button>
+        <Post />
       </div>
     </div>
   );
