@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 import { clearTokens } from "../../lib/auth";
 
 function LogOutButton({ setUser }) {
