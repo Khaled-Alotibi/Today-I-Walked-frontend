@@ -1,6 +1,7 @@
 import { Link } from "react-router";
+import LogOutButton from "./Auth/LogOutButton";
 
-function Navbar() {
+function Navbar({ user, setUser }) {
   return (
     <nav className="w-12/12 shadow-lg fixed top-0 left-1/2 -translate-x-1/2 z-50 bg-gray-950/25 px-1">
       <div className="mx-autu px-3 py-3 flex items-center relative shadow-2xs">
@@ -27,15 +28,21 @@ function Navbar() {
         </ul>
 
         <div className="ml-auto pr-3">
-          <Link to="/Login" className="text-amber-500 hover:text-amber-100">
-            Login
-          </Link>
-          <Link
-            to="/Signup"
-            className="text-amber-100 rounded p-2 px-2 mx-2 bg-orange-500 hover:text-gray-300"
-          >
-            Signup
-          </Link>
+          {user ? (
+            <LogOutButton />
+          ) : (
+            <>
+              <Link to="/Login" className="text-amber-500 hover:text-amber-100">
+                Login
+              </Link>
+              <Link
+                to="/Signup"
+                className="text-amber-100 rounded p-2 px-2 mx-2 bg-orange-500 hover:text-gray-300"
+              >
+                Signup
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </nav>

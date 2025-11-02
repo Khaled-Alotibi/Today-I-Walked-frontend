@@ -1,5 +1,27 @@
 import DarkVeil from "@/components/DarkVeil";
-function Login() {
+import { useState } from "react";
+import axios from "axios";
+import { saveTokens, getUserFromToken } from "@/lib/auth";
+import { useNavigate } from "react-router";
+function Login({ setUser }) {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post("http://127.0.0.1:8000/api/login/", {
+        username,
+        password,
+      });
+      saveTokens(res.data.access, res.data.refresh);
+      setUser(getUserFromToken());
+      navigate("/Feed");
+    } catch (err) {
+      console.error(err);
+    }
+  };
   return (
     <div className="min-h-screen flex items-center justify-center">
       <div className="absolute inset-0 -z-10">
@@ -10,12 +32,13 @@ function Login() {
           Login
         </h1>
 
-        <form className="space-y-4">
+        <form className="space-y-4" onSubmit={handleSubmit}>
           <div>
             <label className="text-sm text-amber-100">Email</label>
             <input
-              type="email"
-              name="email"
+              placeholder="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
               required
               className="w-full mt-1 px-3 py-2 bg-stone-700 text-amber-100 rounded focus:outline-none focus:ring-1 focus:ring-orange-500"
             />
@@ -25,7 +48,9 @@ function Login() {
             <label className="text-sm text-amber-100">Password</label>
             <input
               type="password"
-              name="password"
+              placeholder="***********"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               required
               className="w-full mt-1 px-3 py-2 bg-stone-700 text-amber-100 rounded focus:outline-none focus:ring-1 focus:ring-orange-500"
             />
@@ -41,9 +66,9 @@ function Login() {
 
         <p className="text-sm text-gray-400 text-center mt-4">
           Don't have an account?{" "}
-          <a href="/signup" className="text-orange-500 hover:underline">
+          <Link to="/signup" className="text-orange-500 hover:underline">
             Create
-          </a>
+          </Link>
         </p>
       </div>
     </div>
