@@ -9,7 +9,7 @@ import Feed from "./pages/Feed";
 function App() {
   return (
     <Router>
-      {/* <Navbar />*/}
+      <Navbar />
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/Login" element={<Login />} />
