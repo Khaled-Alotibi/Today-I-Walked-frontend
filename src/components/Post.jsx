@@ -4,8 +4,6 @@ import {
   Dialog,
   DialogClose,
   DialogContent,
-  DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -17,7 +15,21 @@ import { CirclePlus } from "lucide-react";
 import { useState } from "react";
 import ImageUpload from "./UploadImage";
 export function Post() {
+  const [caption, setCaption] = useState("");
+  const [steps, setSteps] = useState("");
   const [image, setImage] = useState(null);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const data = new FormData();
+    data.append("caption", caption);
+    data.append("steps", steps);
+    if (image) {
+      data.append("image", image);
+    }
+    console.log("form data:", data);
+  };
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -25,17 +37,24 @@ export function Post() {
           <CirclePlus size={40} />
         </button>
       </DialogTrigger>
-      <form>
-        <DialogContent className="w-fit h-[80vh] bg-stone-900 border-orange-500 text-amber-100 overflow-y-auto">
-          <DialogHeader className="h-fit">
-            <div className="flex items-center justify-center">
-              <DialogTitle className="text-2xl">Share Your Walk</DialogTitle>
-            </div>
-          </DialogHeader>
+      <DialogContent className="w-fit h-[80vh] bg-stone-900 border-orange-500 text-amber-100 overflow-y-auto">
+        <DialogHeader className="h-fit">
+          <div className="flex items-center justify-center">
+            <DialogTitle className="text-2xl">Share Your Walk</DialogTitle>
+          </div>
+        </DialogHeader>
+
+        <form onSubmit={handleSubmit}>
           <div className=" w-full">
             <div>
               <Label className="pt-2 pb-2">Caption</Label>
-              <Textarea className="p-2" placeholder="Type your message here." />
+              <Textarea
+                name="caption"
+                value={caption}
+                onChange={(e) => setCaption(e.target.value)}
+                className="p-2"
+                placeholder="Type your post here."
+              />
             </div>
             <div className="pt-2.5">
               <Label className="pt-2 pb-2">Upload Image</Label>
@@ -43,14 +62,20 @@ export function Post() {
             </div>
             <div className="pt-2.5">
               <Label className="pt-2 pb-2">Steps</Label>
-              <Input type="number"></Input>
+              <Input
+                type="number"
+                name="steps"
+                value={steps}
+                onChange={(e) => setSteps(e.target.value)}
+                placeholder="Enter the number of steps"
+              ></Input>
             </div>
             <div className="pt-2.5 flex flex-row gap-6">
-              <div>
+              {/* <div>
                 <Label className="pt-2 pb-2">*****</Label>
                 <Input
                   className="text-stone-500"
-                  readonly
+                  readOnly
                   value="this is read only"
                 ></Input>
               </div>
@@ -58,17 +83,21 @@ export function Post() {
                 <Label className="pt-2 pb-2">*****</Label>
                 <Input
                   className="text-stone-500"
-                  readonly
+                  readOnly
                   value="this is read only"
                 ></Input>
-              </div>
+              </div>*/}
             </div>
             <div className="flex justify-center pt-6">
-              <Button className="w-6/12 bg-orange-500">Post</Button>
+              <DialogClose>
+                <Button type="submit" className="w-6/12 bg-orange-500">
+                  Post
+                </Button>
+              </DialogClose>
             </div>
           </div>
-        </DialogContent>
-      </form>
+        </form>
+      </DialogContent>
     </Dialog>
   );
 }

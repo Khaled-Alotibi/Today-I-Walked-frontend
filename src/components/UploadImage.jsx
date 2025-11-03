@@ -1,7 +1,7 @@
 // https://stackoverflow.com/questions/38049966/get-image-preview-before-uploading-in-react
 import { useState, useEffect } from "react";
 import { Input } from "./ui/input";
-export default function ImageUpload() {
+export default function ImageUpload({ onFileSelect }) {
   const [selectedFile, setSelectedFile] = useState();
   const [preview, setPreview] = useState();
 
@@ -15,9 +15,13 @@ export default function ImageUpload() {
     const objectUrl = URL.createObjectURL(selectedFile);
     setPreview(objectUrl);
 
+    if (onFileSelect) {
+      onFileSelect(selectedFile);
+    }
+
     // free memory when ever this component is unmounted
     return () => URL.revokeObjectURL(objectUrl);
-  }, [selectedFile]);
+  }, [selectedFile, onFileSelect]);
 
   const onSelectFile = (e) => {
     if (!e.target.files || e.target.files.length === 0) {
