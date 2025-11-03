@@ -14,12 +14,26 @@ import { Label } from "@/components/ui/label";
 import { CirclePlus } from "lucide-react";
 import { useState } from "react";
 import ImageUpload from "./UploadImage";
+import { authRequest } from "@/lib/auth";
 export function Post() {
   const [caption, setCaption] = useState("");
   const [steps, setSteps] = useState("");
   const [image, setImage] = useState(null);
 
-  const handleSubmit = (e) => {
+  async function newPost(data) {
+    try {
+      const res = await authRequest({
+        method: "post",
+        url: "http://127.0.0.1:8000/api/posts/",
+        data: data,
+      });
+      console.log("post created.", res.data);
+      return res.data;
+    } catch (err) {
+      console.log(err);
+    }
+  }
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const data = new FormData();
@@ -28,7 +42,11 @@ export function Post() {
     if (image) {
       data.append("image", image);
     }
-    console.log("form data:", data);
+
+    const res = await newPost(data);
+    setCaption("");
+    setSteps("");
+    setImage(null);
   };
   return (
     <Dialog>
