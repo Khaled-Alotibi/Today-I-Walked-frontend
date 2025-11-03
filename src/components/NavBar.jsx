@@ -20,6 +20,15 @@ function Navbar({ user, setUser }) {
               Leaderboard
             </Link>
           </li>
+          {user ? (
+            <li>
+              <Link to="/Profile" className="hover:text-amber-100">
+                Profile
+              </Link>
+            </li>
+          ) : (
+            ""
+          )}
           <li>
             <Link to="/AboutUs" className="hover:text-amber-100">
               About Us

@@ -1,64 +1,28 @@
 import { Post } from "@/components/Post";
 import Reel from "@/components/Reel";
-import { CirclePlus } from "lucide-react";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
 function Feed() {
-  const mockPosts = [
-    {
-      id: 1,
-      author: { id: 1, username: "khaled_alotibi" },
-      image: "https://picsum.photos/600/800?random=1",
-      steps: 5420,
-      caption: "Today I walked",
-      created_at: "2025-02-01T10:32:14Z",
-    },
-    {
-      id: 1,
-      author: { id: 1, username: "khaled_alotibi" },
-      image: "https://picsum.photos/600/800?random=1",
-      steps: 5420,
-      caption: "Today I walked",
-      created_at: "2025-02-01T10:32:14Z",
-    },
+  const [posts, setPosts] = useState([]);
+  async function getAllPosts() {
+    try {
+      const res = await axios.get("http://127.0.0.1:8000/api/posts");
 
-    {
-      id: 1,
-      author: { id: 1, username: "khaled_alotibi" },
-      image: "https://picsum.photos/600/800?random=2",
-      steps: 5420,
-      caption: "Today I walked",
-      created_at: "2025-02-01T10:32:14Z",
-    },
-    {
-      id: 1,
-      author: { id: 1, username: "khaled_alotibi" },
-      image: "https://picsum.photos/600/800?random=3",
-      steps: 5420,
-      caption: "Today I walked",
-      created_at: "2025-02-01T10:32:14Z",
-    },
-    {
-      id: 1,
-      author: { id: 1, username: "khaled_alotibi" },
-      image: "https://picsum.photos/600/800?random=1",
-      steps: 5420,
-      caption: "Today I walked",
-      created_at: "2025-02-01T10:32:14Z",
-    },
-    {
-      id: 1,
-      author: { id: 1, username: "khaled_alotibi" },
-      image: "https://picsum.photos/600/800?random=1",
-      steps: 5420,
-      caption: "Today I walked",
-      created_at: "2025-02-01T10:32:14Z",
-    },
-  ];
+      console.log(res.data);
+      setPosts(res.data);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+  useEffect(() => {
+    getAllPosts();
+  }, []);
   return (
     <div className="h-screen w-screen bg-stone-900  text-amber-100 flex justify-center items-center">
       <div className="flex w-[95%] h-[95%] gap-3">
         <div className="w-1/2 bg-stone-800 rounded-2xl p-6"></div>
-        <Reel Posts={mockPosts} />
+        <Reel posts={posts} />
       </div>
       <div className="fixed bottom-3 right-3">
         <Post />
