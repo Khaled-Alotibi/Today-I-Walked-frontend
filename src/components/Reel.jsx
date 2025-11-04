@@ -1,4 +1,5 @@
 import { authRequest } from "@/lib/auth";
+import { Link } from "react-router";
 import { Trash, Pencil, Heart } from "lucide-react";
 import { Post } from "./Post";
 import { useState } from "react";
@@ -26,7 +27,9 @@ function Reel({ posts, user, handlePostDelete, setPosts }) {
           <img src={post.image} alt={post.caption} className="w-full h-3/4" />
           <div className="p-4 space-y-4 flex-1 flex flex-col">
             <div className="flex justify-between text-sm text-gray-400">
-              <span>@{post.username}</span>
+              <span>
+                <Link to={`/Profile/${post.user_id}`}>@{post.username}</Link>
+              </span>
               <span>{new Date(post.created_at).toLocaleDateString()}</span>
             </div>
             <p className="text-lg">{post.caption || "Today I Walked."}</p>
@@ -34,7 +37,7 @@ function Reel({ posts, user, handlePostDelete, setPosts }) {
               <p className="text-sm text-amber-500">
                 {post.steps.toLocaleString()} steps
               </p>
-              {user ? (
+              {user && user.user_id == post.user_id ? (
                 <>
                   <div className="flex justify-end gap-4 mt-auto">
                     <button className="cursor-pointer ">
