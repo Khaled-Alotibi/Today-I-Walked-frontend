@@ -31,7 +31,12 @@ function Profile({ user }) {
         hello world
       </div>
       <div className="flex w-[95%] h-[95%] gap-3 justify-center">
-        <Reel posts={posts} user={user} handlePostDelete={handlePostDelete} />
+        <Reel
+          posts={posts}
+          setPosts={setPosts}
+          user={user}
+          handlePostDelete={handlePostDelete}
+        />
       </div>
     </div>
   );

@@ -1,6 +1,8 @@
 import { authRequest } from "@/lib/auth";
 import { Trash, Pencil, Heart } from "lucide-react";
-function Reel({ posts, user, handlePostDelete }) {
+import { Post } from "./Post";
+import { useState } from "react";
+function Reel({ posts, user, handlePostDelete, setPosts }) {
   async function handleDelete(id) {
     try {
       const res = await authRequest({
@@ -35,8 +37,8 @@ function Reel({ posts, user, handlePostDelete }) {
               {user ? (
                 <>
                   <div className="flex justify-end gap-4 mt-auto">
-                    <button className="cursor-pointer">
-                      <Pencil className="text-red-500" />
+                    <button className="cursor-pointer ">
+                      <Post post={post} setPosts={setPosts} />
                     </button>
                     <button
                       onClick={() => handleDelete(post.id)}
