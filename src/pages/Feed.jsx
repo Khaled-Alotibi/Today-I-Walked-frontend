@@ -22,7 +22,7 @@ function Feed({ user }) {
     <div className="h-screen w-screen bg-stone-900  text-amber-100 flex justify-center items-center">
       <div className="flex w-[95%] h-[95%] gap-3">
         <div className="w-1/2 bg-stone-800 rounded-2xl p-6"></div>
-        <Reel posts={posts} />
+        <Reel posts={posts} setPosts={setPosts} />
       </div>
       {user ? (
         <div className="fixed bottom-3 right-3">

@@ -1,5 +1,18 @@
+import { authRequest } from "@/lib/auth";
 import { Trash, Pencil, Heart } from "lucide-react";
-function Reel({ posts, user }) {
+function Reel({ posts, user, handlePostDelete }) {
+  async function handleDelete(id) {
+    try {
+      const res = await authRequest({
+        method: "delete",
+        url: `http://127.0.0.1:8000/api/posts/${id}/`,
+      });
+      handlePostDelete(id);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+  console.log(posts);
   return (
     // {/* https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll_snap/Basic_concepts*/}
     <div className="w-2/3 bg-stone-800 rounded-2xl overflow-y-scroll snap-y snap-mandatory ">
@@ -8,11 +21,7 @@ function Reel({ posts, user }) {
           key={post.id}
           className="snap-start h-screen rounded-xl mb-2 bg-stone-900/40 flex flex-col "
         >
-          <img
-            src={`http://127.0.0.1:8000/${post.image}`}
-            alt={post.caption}
-            className="w-full h-3/4"
-          />
+          <img src={post.image} alt={post.caption} className="w-full h-3/4" />
           <div className="p-4 space-y-4 flex-1 flex flex-col">
             <div className="flex justify-between text-sm text-gray-400">
               <span>@{post.username}</span>
@@ -29,7 +38,10 @@ function Reel({ posts, user }) {
                     <button className="cursor-pointer">
                       <Pencil className="text-red-500" />
                     </button>
-                    <button className="cursor-pointer">
+                    <button
+                      onClick={() => handleDelete(post.id)}
+                      className="cursor-pointer"
+                    >
                       <Trash className="text-red-500" />
                     </button>
                   </div>

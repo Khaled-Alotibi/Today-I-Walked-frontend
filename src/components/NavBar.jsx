@@ -22,7 +22,10 @@ function Navbar({ user, setUser }) {
           </li>
           {user ? (
             <li>
-              <Link to="/Profile" className="hover:text-amber-100">
+              <Link
+                to={`/Profile/${user.user_id}`}
+                className="hover:text-amber-100"
+              >
                 Profile
               </Link>
             </li>

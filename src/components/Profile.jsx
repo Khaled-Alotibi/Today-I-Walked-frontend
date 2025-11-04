@@ -1,12 +1,20 @@
 import Reel from "@/components/Reel";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { useParams } from "react-router";
 
 function Profile({ user }) {
+  const { id } = useParams();
   const [posts, setPosts] = useState([]);
+
+  async function handlePostDelete(id) {
+    setPosts((prev) => prev.filter((post) => post.id !== id));
+  }
   async function getAllPosts() {
     try {
-      const res = await axios.get("http://127.0.0.1:8000/api/posts");
+      const res = await axios.get(
+        `http://127.0.0.1:8000/api/posts/${id}/posts`,
+      );
 
       console.log(res.data);
       setPosts(res.data);
@@ -23,7 +31,7 @@ function Profile({ user }) {
         hello world
       </div>
       <div className="flex w-[95%] h-[95%] gap-3 justify-center">
-        <Reel posts={posts} user={user} />
+        <Reel posts={posts} user={user} handlePostDelete={handlePostDelete} />
       </div>
     </div>
   );
