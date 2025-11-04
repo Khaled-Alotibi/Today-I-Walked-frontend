@@ -7,6 +7,7 @@ import Navbar from "./components/NavBar";
 import Login from "./pages/Auth/Login";
 import Signup from "./pages/Auth/Signup";
 import Feed from "./pages/Feed";
+import Profile from "@/components/Profile";
 
 import { getUserFromToken } from "./lib/auth";
 function App() {
@@ -19,8 +20,8 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/Login" element={<Login setUser={setUser} />} />
         <Route path="/Signup" element={<Signup />} />
-        <Route path="/Feed" element={<Feed />} />
-        {/* <Route path="/Profile" element={<Profile />} />*/}
+        <Route path="/Feed" element={<Feed user={user} />} />
+        <Route path="/Profile" element={<Profile user={user} />} />
       </Routes>
     </Router>
   );

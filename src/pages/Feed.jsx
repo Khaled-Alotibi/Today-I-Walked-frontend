@@ -3,7 +3,7 @@ import Reel from "@/components/Reel";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-function Feed() {
+function Feed({ user }) {
   const [posts, setPosts] = useState([]);
   async function getAllPosts() {
     try {
@@ -24,9 +24,13 @@ function Feed() {
         <div className="w-1/2 bg-stone-800 rounded-2xl p-6"></div>
         <Reel posts={posts} />
       </div>
-      <div className="fixed bottom-3 right-3">
-        <Post />
-      </div>
+      {user ? (
+        <div className="fixed bottom-3 right-3">
+          <Post />
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 }

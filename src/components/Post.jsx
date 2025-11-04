@@ -71,7 +71,7 @@ export function Post() {
                 value={caption}
                 onChange={(e) => setCaption(e.target.value)}
                 className="p-2"
-                placeholder="Type your post here."
+                placeholder="Today I Walked."
               />
             </div>
             <div className="pt-2.5">
