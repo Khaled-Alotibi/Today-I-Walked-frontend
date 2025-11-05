@@ -2,9 +2,6 @@ import DarkVeil from "@/components/DarkVeil";
 function Landing() {
   return (
     <div className="w-screen h-screen relative">
-      <div className="absolute inset-0 -z-10">
-        <DarkVeil hueShift={231} />
-      </div>
       <div className="w-screen h-screen flex flex-col items-center justify-center px-12 text-center gap-8">
         <blockquote className="space-y-8">
           <p className="text-4xl text-balance text-amber-100 ">

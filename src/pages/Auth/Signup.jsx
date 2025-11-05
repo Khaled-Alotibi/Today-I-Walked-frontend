@@ -25,9 +25,6 @@ function Signup() {
   };
   return (
     <div className="min-h-screen flex items-center justify-center">
-      <div className="absolute inset-0 -z-10">
-        <DarkVeil hueShift={231} />
-      </div>
       <div className="bg-stone-900/80 p-8 rounded w-6/12 shadow-lg">
         <h1 className="text-2xl font-semibold text-amber-100 mb-6 text-center">
           Signup a new account

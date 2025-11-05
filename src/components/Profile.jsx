@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { authRequest } from "@/lib/auth";
 import { Footprints, Pencil } from "lucide-react";
+import { ProfileEdit } from "./ProfileEdit";
 
 function Profile({ user }) {
   const { id } = useParams();
@@ -41,19 +42,23 @@ function Profile({ user }) {
     getProfile();
   }, [id]);
   return (
-    <div className="h-screen w-screen bg-stone-900  text-amber-100 flex flex-col justify-center items-center">
+    <div className="h-screen w-screen  text-amber-100 flex flex-col justify-center items-center">
       <div className="flex w-[95%] h-[95%] gap-3 justify-center">
         <div className="w-1/3 bg-stone-800 rounded-2xl p-6 flex flex-col h-full relative">
-          <button className="top-3 right-3 absolute cursor-pointer">
-            <Pencil className="text-orange-500" />
-          </button>
+          {user.user_id == id ? (
+            <button className="top-3 right-3 absolute cursor-pointer">
+              <ProfileEdit profile={profile} setProfile={setProfile} id={id} />
+            </button>
+          ) : (
+            ""
+          )}
+
           {profile ? (
             <>
               <div className="flex flex-col">
                 <div className="w-full border-b border-orange-500 flex justify-center mb-4">
                   <img
                     src={`http://127.0.0.1:8000${profile.profile_pic}`}
-                    alt="profile photo"
                     className="w-15 h-15 mb-2  rounded-full border border-amber-500"
                   />
                 </div>
@@ -77,7 +82,7 @@ function Profile({ user }) {
                   className="text-amber-400 border-r border-orange-500 m-1"
                 />
                 <p className="text-amber-400 m-1">
-                  {profile.total_steps.toLocaleString()}
+                  {profile.total_steps?.toLocaleString()}
                 </p>
               </div>
             </>

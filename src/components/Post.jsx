@@ -111,7 +111,7 @@ export function Post({ post, setPosts }) {
                 name="caption"
                 value={caption}
                 onChange={(e) => setCaption(e.target.value)}
-                className="p-2"
+                className="p-2 border border-orange-500"
                 placeholder="Today I Walked."
               />
             </div>
@@ -127,6 +127,7 @@ export function Post({ post, setPosts }) {
                 value={steps}
                 onChange={(e) => setSteps(e.target.value)}
                 placeholder="Enter the number of steps"
+                className="border border-orange-500"
               ></Input>
             </div>
             <div className="pt-2.5 flex flex-row gap-6">
