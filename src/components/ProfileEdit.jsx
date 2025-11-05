@@ -70,7 +70,7 @@ export function ProfileEdit({ profile, setProfile, id }) {
               <Input
                 type="file"
                 accept="image/*"
-                className="text-stone-700 file:text-orange-500"
+                className="text-stone-700 file:text-orange-500 border border-orange-500"
                 onChange={(e) => setProfilePic(e.target.files[0])}
               />
             </div>
@@ -81,6 +81,7 @@ export function ProfileEdit({ profile, setProfile, id }) {
                 name="username"
                 onChange={(e) => setBio(e.target.value)}
                 placeholder="Write somthing..."
+                className="border border-orange-500"
               />
             </div>
           </div>

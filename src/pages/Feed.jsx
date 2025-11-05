@@ -3,15 +3,19 @@ import Reel from "@/components/Reel";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import DarkVeil from "@/components/DarkVeil";
+import { authRequest } from "@/lib/auth";
 
 function Feed({ user }) {
   const [posts, setPosts] = useState([]);
   async function getAllPosts() {
     try {
-      const res = await axios.get("http://127.0.0.1:8000/api/posts");
+      const res = await authRequest({
+        method: "GET",
+        url: "http://127.0.0.1:8000/api/posts",
+      });
 
       console.log(res.data);
-      setPosts(res.data);
+      setPosts(res.data.reverse());
     } catch (err) {
       console.log(err);
     }

@@ -9,7 +9,9 @@ export default function Leaderboard() {
   async function getAllProfiles() {
     try {
       const res = await axios.get("http://localhost:8000/api/profiles/");
-      const sorted = res.data.sort((a, b) => b.total_steps - a.total_steps);
+      const sorted = res.data
+        .sort((a, b) => b.total_steps - a.total_steps)
+        .filter((a) => a.total_steps > 0);
       setProfiles(sorted);
 
       console.log(profiles);

@@ -4,6 +4,29 @@ import { Trash, Pencil, Heart } from "lucide-react";
 import { Post } from "./Post";
 import { useState } from "react";
 function Reel({ posts, user, handlePostDelete, setPosts }) {
+  async function toggleLike(post, setPosts) {
+    const method = post.liked_by ? "DELETE" : "POST";
+    try {
+      const res = await authRequest({
+        method: method,
+        url: `http://127.0.0.1:8000/api/posts/${post.id}/like/`,
+      });
+      setPosts((prev) =>
+        prev.map((p) =>
+          p.id === post.id
+            ? {
+                ...p,
+                liked_by: !post.liked_by,
+                likes_count: post.likes_count + (post.liked_by ? -1 : 1),
+              }
+            : p,
+        ),
+      );
+      console.log("likes:", post);
+    } catch (err) {
+      console.log(err);
+    }
+  }
   async function handleDelete(id) {
     try {
       const res = await authRequest({
@@ -15,7 +38,7 @@ function Reel({ posts, user, handlePostDelete, setPosts }) {
       console.log(err);
     }
   }
-  console.log(posts);
+  console.log("ooooo", posts);
   return (
     // {/* https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll_snap/Basic_concepts*/}
     <div className="w-2/3  bg-stone-800 rounded-2xl overflow-y-scroll snap-y snap-mandatory border border-orange-500 no-scrollbar">
@@ -53,8 +76,15 @@ function Reel({ posts, user, handlePostDelete, setPosts }) {
                 </>
               ) : (
                 <div className="flex justify-end gap-4 mt-auto">
-                  <button className="cursor-pointer">
-                    <Heart fill="#f97316" color="#f97316" />
+                  <button
+                    className="cursor-pointer"
+                    onClick={() => toggleLike(post, setPosts)}
+                  >
+                    {post.liked_by ? (
+                      <Heart fill="#f97316" color="#f97316" />
+                    ) : (
+                      <Heart color="#f97316" />
+                    )}
                   </button>
                 </div>
               )}
