@@ -32,7 +32,7 @@ function Login({ setUser }) {
 
         <form className="space-y-4" onSubmit={handleSubmit}>
           <div>
-            <label className="text-sm text-amber-100">Email</label>
+            <label className="text-sm text-amber-100">Username</label>
             <input
               placeholder="username"
               value={username}

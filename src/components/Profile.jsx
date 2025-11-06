@@ -58,7 +58,7 @@ function Profile({ user, setUser }) {
   return (
     <div className="h-screen w-screen  text-amber-100 flex flex-col justify-center items-center">
       <div className="flex w-[95%] h-[95%] gap-3 justify-center">
-        <div className="w-1/3 bg-stone-900 rounded-2xl p-6 flex flex-col h-full relative border border-orange-500">
+        <div className="w-1/3 bg-stone-900 rounded-2xl p-6 flex flex-col h-[95%] relative border border-orange-500 mt-10">
           {user.user_id == id ? (
             <>
               <button className="top-3 right-3 absolute cursor-pointer">
