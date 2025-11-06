@@ -3,8 +3,8 @@ import LogOutButton from "./Auth/LogOutButton";
 
 function Navbar({ user, setUser }) {
   return (
-    <nav className="w-12/12 shadow-lg fixed top-0 left-1/2 -translate-x-1/2 z-50 bg-gray-950/25 px-1">
-      <div className="mx-autu px-3 py-3 flex items-center relative shadow-2xs">
+    <nav className="w-12/12 shadow-lg fixed top-0 left-1/2 -translate-x-1/2 z-50 bg-gray-950/50 px-1">
+      <div className="mx-auto px-3 py-3 flex items-center relative shadow-2xs">
         <h1 className="text-xl font-semibold text-amber-500">
           <Link to="/">Today I Walked</Link>
         </h1>

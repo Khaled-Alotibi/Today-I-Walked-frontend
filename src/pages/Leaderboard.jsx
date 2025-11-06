@@ -25,7 +25,7 @@ export default function Leaderboard() {
   }, []);
   return (
     <div className="h-screen w-screen text-amber-100 flex justify-center items-center">
-      <div className="flex flex-col w-2/3 h-2/3 gap-3 justify-start p-6 bg-stone-800 rounded-xl  overflow-y-auto border-orange-500 border">
+      <div className="flex flex-col w-2/3 h-2/3 gap-3 justify-start p-6 bg-stone-900 rounded-xl  overflow-y-auto border-orange-500 border">
         <h1 className="text-2xl font-bold mb-4 text-center">Leaderboard</h1>
 
         {profiles.map((profile, index) => (

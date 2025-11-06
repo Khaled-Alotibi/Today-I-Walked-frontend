@@ -38,10 +38,9 @@ function Reel({ posts, user, handlePostDelete, setPosts }) {
       console.log(err);
     }
   }
-  console.log("ooooo", posts);
   return (
     // {/* https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll_snap/Basic_concepts*/}
-    <div className="w-2/3  bg-stone-800 rounded-2xl overflow-y-scroll snap-y snap-mandatory border border-orange-500 no-scrollbar">
+    <div className="w-2/3  bg-stone-900 rounded-2xl overflow-y-scroll snap-y snap-mandatory border border-orange-500 no-scrollbar">
       {posts.map((post) => (
         <section
           key={post.id}
@@ -68,7 +67,7 @@ function Reel({ posts, user, handlePostDelete, setPosts }) {
                     </button>
                     <button
                       onClick={() => handleDelete(post.id)}
-                      className="cursor-pointer"
+                      className="cursor-pointer pb-2"
                     >
                       <Trash className="text-red-500" />
                     </button>

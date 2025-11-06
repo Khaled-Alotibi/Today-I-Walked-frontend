@@ -12,6 +12,7 @@ import Leaderboard from "./pages/Leaderboard";
 import DarkVeil from "./components/DarkVeil";
 
 import { getUserFromToken } from "./lib/auth";
+import AboutUs from "./pages/AboutUs";
 function App() {
   const [user, setUser] = useState(getUserFromToken());
   return (
@@ -30,6 +31,7 @@ function App() {
           element={<Profile user={user} setUser={setUser} />}
         />
         <Route path="/Leaderboard" element={<Leaderboard user={user} />} />
+        <Route path="/AboutUs" element={<AboutUs />} />
       </Routes>
     </Router>
   );

@@ -58,7 +58,7 @@ function Profile({ user, setUser }) {
   return (
     <div className="h-screen w-screen  text-amber-100 flex flex-col justify-center items-center">
       <div className="flex w-[95%] h-[95%] gap-3 justify-center">
-        <div className="w-1/3 bg-stone-800 rounded-2xl p-6 flex flex-col h-full relative">
+        <div className="w-1/3 bg-stone-900 rounded-2xl p-6 flex flex-col h-full relative border border-orange-500">
           {user.user_id == id ? (
             <>
               <button className="top-3 right-3 absolute cursor-pointer">
@@ -70,7 +70,7 @@ function Profile({ user, setUser }) {
               </button>
               <button
                 onClick={deleteAccount}
-                className="bottom-3 right-3 text-[15px] absolute cursor-pointer bg-red-600 rounded p-2 mb-2.5"
+                className="bottom-3 right-3 text-[15px] absolute cursor-pointer bg-red-600/80 rounded p-2 mb-2.5"
               >
                 <Link to="/"> Delete Your Account..</Link>
               </button>
@@ -97,7 +97,7 @@ function Profile({ user, setUser }) {
                     </span>
                   </p>
 
-                  <h3 className="border-b border-amber-400 mt-2 mb-2">Bio</h3>
+                  <h3 className="border-b border-orange-500 mt-2 mb-2">Bio</h3>
                   <p className="text-stone-200">{profile.bio || "No Bio"}</p>
                 </div>
               </div>

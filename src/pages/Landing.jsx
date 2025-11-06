@@ -1,4 +1,4 @@
-import DarkVeil from "@/components/DarkVeil";
+import { Link } from "react-router";
 function Landing() {
   return (
     <div className="w-screen h-screen relative">
@@ -20,12 +20,18 @@ function Landing() {
         </blockquote>
 
         <div className="flex flex-row gap-3 ">
-          <button className="bg-orange-600 text-amber-100 px-9 py-4 rounded-2xl cursor-pointer">
+          <Link
+            to="/Signup"
+            className="bg-orange-600 text-amber-100 px-9 py-4 rounded-2xl cursor-pointer"
+          >
             Get Started
-          </button>
-          <button className="bg-orange-600 text-amber-100 px-9 py-4 rounded-2xl cursor-pointer">
+          </Link>
+          <Link
+            to="AboutUs"
+            className="bg-orange-600 text-amber-100 px-9 py-4 rounded-2xl cursor-pointer"
+          >
             Learn More
-          </button>
+          </Link>
         </div>
       </div>
     </div>
