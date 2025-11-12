@@ -11,7 +11,7 @@ function Feed({ user }) {
     try {
       const res = await authRequest({
         method: "GET",
-        url: "http://127.0.0.1:8000/api/posts",
+        url: "https://today-i-walked-backend-production.up.railway.app/api/posts",
       });
 
       console.log(res.data);

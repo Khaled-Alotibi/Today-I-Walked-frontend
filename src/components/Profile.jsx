@@ -16,7 +16,7 @@ function Profile({ user, setUser }) {
     try {
       await authRequest({
         method: "delete",
-        url: `http://127.0.0.1:8000/api/profile/${id}/`,
+        url: `https://today-i-walked-backend-production.up.railway.app/api/profile/${id}/`,
       });
       setUser(null);
       clearTokens();
@@ -29,7 +29,7 @@ function Profile({ user, setUser }) {
     try {
       const res = await authRequest({
         method: "get",
-        url: `http://127.0.0.1:8000/api/profile/${id}`,
+        url: `https://today-i-walked-backend-production.up.railway.app/api/profile/${id}`,
       });
       setProfile(res.data);
       console.log(res.data);
@@ -43,7 +43,7 @@ function Profile({ user, setUser }) {
   async function getAllPosts() {
     try {
       const res = await axios.get(
-        `http://127.0.0.1:8000/api/posts/${id}/posts`,
+        `https://today-i-walked-backend-production.up.railway.app/api/posts/${id}/posts`,
       );
 
       setPosts(res.data);
@@ -84,7 +84,7 @@ function Profile({ user, setUser }) {
               <div className="flex flex-col">
                 <div className="w-full border-b border-orange-500 flex justify-center mb-4">
                   <img
-                    src={`http://127.0.0.1:8000${profile.profile_pic}`}
+                    src={`https://today-i-walked-backend-production.up.railway.app${profile.profile_pic}`}
                     className="w-15 h-15 mb-2  rounded-full border border-amber-500"
                   />
                 </div>

@@ -12,10 +12,13 @@ function Login({ setUser }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://127.0.0.1:8000/api/login/", {
-        username,
-        password,
-      });
+      const res = await axios.post(
+        "https://today-i-walked-backend-production.up.railway.app/api/login/",
+        {
+          username,
+          password,
+        },
+      );
       saveTokens(res.data.access, res.data.refresh);
       setUser(getUserFromToken());
       navigate("/Feed");

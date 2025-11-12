@@ -33,7 +33,7 @@ export function Post({ post, setPosts }) {
     try {
       const res = await authRequest({
         method: "post",
-        url: "http://127.0.0.1:8000/api/posts/",
+        url: "https://today-i-walked-backend-production.up.railway.app/api/posts/",
         data: data,
       });
       console.log("post created.", res.data);
@@ -47,7 +47,7 @@ export function Post({ post, setPosts }) {
     try {
       const res = await authRequest({
         method: "patch",
-        url: `http://127.0.0.1:8000/api/posts/${id}/`,
+        url: `https://today-i-walked-backend-production.up.railway.app/api/posts/${id}/`,
         data: data,
       });
       console.log("post updated.", res.data);

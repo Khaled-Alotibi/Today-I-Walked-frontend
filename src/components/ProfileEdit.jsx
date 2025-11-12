@@ -24,7 +24,7 @@ export function ProfileEdit({ profile, setProfile, id }) {
     try {
       const res = await authRequest({
         method: "patch",
-        url: `http://127.0.0.1:8000/api/profile/${id}/`,
+        url: `https://today-i-walked-backend-production.up.railway.app/api/profile/${id}/`,
         data: data,
         headers: {
           "Content-Type": "multipart/form-data",

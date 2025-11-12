@@ -12,11 +12,14 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://127.0.0.1:8000/api/signup/", {
-        username,
-        password,
-        email,
-      });
+      await axios.post(
+        "https://today-i-walked-backend-production.up.railway.app/api/signup/",
+        {
+          username,
+          password,
+          email,
+        },
+      );
       navigate("/login");
     } catch (err) {
       console.error(err);

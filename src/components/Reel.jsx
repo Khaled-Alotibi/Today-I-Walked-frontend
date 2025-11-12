@@ -9,7 +9,7 @@ function Reel({ posts, user, handlePostDelete, setPosts }) {
     try {
       const res = await authRequest({
         method: method,
-        url: `http://127.0.0.1:8000/api/posts/${post.id}/like/`,
+        url: `https://today-i-walked-backend-production.up.railway.app/api/posts/${post.id}/like/`,
       });
       setPosts((prev) =>
         prev.map((p) =>
@@ -31,7 +31,7 @@ function Reel({ posts, user, handlePostDelete, setPosts }) {
     try {
       const res = await authRequest({
         method: "delete",
-        url: `http://127.0.0.1:8000/api/posts/${id}/`,
+        url: `https://today-i-walked-backend-production.up.railway.app/api/posts/${id}/`,
       });
       handlePostDelete(id);
     } catch (err) {

@@ -39,7 +39,7 @@ export const authRequest = async (config) => {
     if (!refresh) throw new Error("No refresh token");
     try {
       const refreshRes = await axios.post(
-        "http://127.0.0.1:8000/api/token/refresh/",
+        "https://today-i-walked-backend-production.up.railway.app/api/token/refresh/",
         { refresh },
       );
       access = refreshRes.data.access;
