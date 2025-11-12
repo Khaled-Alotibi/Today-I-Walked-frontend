@@ -8,7 +8,9 @@ export default function Leaderboard() {
 
   async function getAllProfiles() {
     try {
-      const res = await axios.get("http://localhost:8000/api/profiles/");
+      const res = await axios.get(
+        "https://today-i-walked-backend-production.up.railway.app/api/profiles/",
+      );
       const sorted = res.data
         .sort((a, b) => b.total_steps - a.total_steps)
         .filter((a) => a.total_steps > 0);
