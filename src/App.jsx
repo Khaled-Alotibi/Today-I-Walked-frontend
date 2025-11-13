@@ -17,7 +17,7 @@ function App() {
   const [user, setUser] = useState(getUserFromToken());
   return (
     <Router>
-      <div className="absolute inset-0 -z-10">
+      <div className="fixed inset-0 -z-10 w-screen h-screen">
         <DarkVeil hueShift={231} />
       </div>
       <Navbar user={user} setUser={setUser} />
