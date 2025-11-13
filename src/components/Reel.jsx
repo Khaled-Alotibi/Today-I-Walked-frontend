@@ -40,28 +40,28 @@ function Reel({ posts, user, handlePostDelete, setPosts }) {
   }
   return (
     // {/* https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll_snap/Basic_concepts*/}
-    <div className="w-2/3  bg-stone-900 rounded-2xl overflow-y-scroll snap-y snap-mandatory border border-orange-500 no-scrollbar mt-10">
+    <div className="w-full sm:w-5/6 md:w-4/6 lg:w-2/3 bg-stone-900 rounded-xl sm:rounded-2xl overflow-y-scroll snap-y snap-mandatory border border-orange-500 no-scrollbar mt-10 sm:mt-10">
       {posts.map((post) => (
         <section
           key={post.id}
           className="snap-start h-full rounded-xl mb-2 bg-stone-900/40 flex flex-col "
         >
-          <img src={post.image} alt={post.caption} className="w-full h-3/4" />
-          <div className="p-4 space-y-4 flex-1 flex flex-col">
-            <div className="flex justify-between text-sm text-gray-400">
+          <img src={post.image} alt={post.caption} className="w-full h-3/4 object-cover" />
+          <div className="p-3 sm:p-4 space-y-3 sm:space-y-4 flex-1 flex flex-col">
+            <div className="flex justify-between text-xs sm:text-sm text-gray-400">
               <span>
                 <Link to={`/Profile/${post.user_id}`}>@{post.username}</Link>
               </span>
               <span>{new Date(post.created_at).toLocaleDateString()}</span>
             </div>
-            <p className="text-lg">{post.caption || "Today I Walked."}</p>
+            <p className="text-base sm:text-lg">{post.caption || "Today I Walked."}</p>
             <div className="flex justify-between mt-auto items-center pb-[0%]">
-              <p className="text-sm text-amber-500">
+              <p className="text-xs sm:text-sm text-amber-500">
                 {post.steps.toLocaleString()} steps
               </p>
               {user && user.user_id == post.user_id ? (
                 <>
-                  <div className="flex justify-end gap-4 mt-auto">
+                  <div className="flex justify-end gap-3 sm:gap-4 mt-auto">
                     <button className="cursor-pointer ">
                       <Post post={post} setPosts={setPosts} />
                     </button>
@@ -74,7 +74,7 @@ function Reel({ posts, user, handlePostDelete, setPosts }) {
                   </div>
                 </>
               ) : (
-                <div className="flex justify-end gap-4 mt-auto">
+                <div className="flex justify-end gap-3 sm:gap-4 mt-auto">
                   <button
                     className="cursor-pointer"
                     onClick={() => toggleLike(post, setPosts)}

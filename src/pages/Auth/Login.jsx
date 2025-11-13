@@ -27,9 +27,9 @@ function Login({ setUser }) {
     }
   };
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="bg-stone-900/80 p-8 rounded w-6/12 shadow-lg">
-        <h1 className="text-2xl font-semibold text-amber-100 mb-6 text-center">
+    <div className="min-h-screen flex items-center justify-center px-4">
+      <div className="bg-stone-900/80 p-4 sm:p-6 md:p-8 rounded w-full sm:w-5/6 md:w-4/6 lg:w-3/6 xl:w-2/6 shadow-lg">
+        <h1 className="text-xl sm:text-2xl font-semibold text-amber-100 mb-4 sm:mb-6 text-center">
           Login
         </h1>
 

@@ -96,38 +96,38 @@ export function Post({ post, setPosts }) {
           </button>
         )}
       </DialogTrigger>
-      <DialogContent className="w-8/12 h-[80vh] bg-stone-900 border-orange-500 text-amber-100 overflow-y-auto">
+      <DialogContent className="w-full sm:w-11/12 md:w-4/5 lg:w-3/4 xl:w-8/12 h-[80vh] bg-stone-900 border-orange-500 text-amber-100 overflow-y-auto">
         <DialogHeader className="h-fit">
           <div className="flex items-center justify-center">
-            <DialogTitle className="text-2xl">Share Your Walk</DialogTitle>
+            <DialogTitle className="text-xl sm:text-2xl">Share Your Walk</DialogTitle>
           </div>
         </DialogHeader>
 
         <form onSubmit={handleSubmit}>
           <div className=" w-full">
             <div>
-              <Label className="pt-2 pb-2">Caption</Label>
+              <Label className="pt-2 pb-2 text-sm sm:text-base">Caption</Label>
               <Textarea
                 name="caption"
                 value={caption}
                 onChange={(e) => setCaption(e.target.value)}
-                className="p-2 border border-orange-500"
+                className="p-2 border border-orange-500 text-sm sm:text-base"
                 placeholder="Today I Walked."
               />
             </div>
             <div className="pt-2.5">
-              <Label className="pt-2 pb-2">Upload Image</Label>
+              <Label className="pt-2 pb-2 text-sm sm:text-base">Upload Image</Label>
               <ImageUpload onFileSelect={setImage} />
             </div>
             <div className="pt-2.5">
-              <Label className="pt-2 pb-2">Steps</Label>
+              <Label className="pt-2 pb-2 text-sm sm:text-base">Steps</Label>
               <Input
                 type="number"
                 name="steps"
                 value={steps}
                 onChange={(e) => setSteps(e.target.value)}
                 placeholder="Enter the number of steps"
-                className="border border-orange-500"
+                className="border border-orange-500 text-sm sm:text-base"
               ></Input>
             </div>
             <div className="pt-2.5 flex flex-row gap-6">
@@ -148,9 +148,9 @@ export function Post({ post, setPosts }) {
                 ></Input>
               </div>*/}
             </div>
-            <div className="flex justify-center pt-6">
+            <div className="flex justify-center pt-4 sm:pt-6">
               <DialogClose>
-                <Button type="submit" className="bg-orange-500 w-50">
+                <Button type="submit" className="bg-orange-500 w-50 text-sm sm:text-base">
                   Post
                 </Button>
               </DialogClose>

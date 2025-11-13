@@ -38,9 +38,9 @@ export default function ImageUpload({ onFileSelect }) {
       <Input
         type="file"
         onChange={onSelectFile}
-        className="text-stone-700 file:text-orange-500 border border-orange-500"
+        className="text-stone-700 file:text-orange-500 border border-orange-500 text-sm sm:text-base"
       />
-      {selectedFile && <img className="pt-2 pb-2 rounded-4xl" src={preview} />}
+      {selectedFile && <img className="pt-2 pb-2 rounded-4xl w-full h-auto max-h-64 sm:max-h-96 object-cover" src={preview} />}
     </div>
   );
 }
