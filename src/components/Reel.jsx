@@ -40,41 +40,41 @@ function Reel({ posts, user, handlePostDelete, setPosts }) {
   }
   return (
     // {/* https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll_snap/Basic_concepts*/}
-    <div className="w-full sm:w-5/6 md:w-4/6 lg:w-2/3 bg-stone-900 rounded-xl sm:rounded-2xl overflow-y-scroll snap-y snap-mandatory border border-orange-500 no-scrollbar mt-10 sm:mt-10">
+    <div className="w-full sm:w-5/6 md:w-4/6 lg:w-2/3 bg-stone-900 rounded-xl sm:rounded-2xl overflow-y-scroll snap-y snap-mandatory border border-orange-500 no-scrollbar h-full">
       {posts.map((post) => (
         <section
           key={post.id}
-          className="snap-start h-full rounded-xl mb-2 bg-stone-900/40 flex flex-col "
+          className="snap-start min-h-full rounded-xl mb-2 bg-stone-900/40 flex flex-col"
         >
-          <img src={post.image} alt={post.caption} className="w-full h-3/4 object-cover" />
-          <div className="p-3 sm:p-4 space-y-3 sm:space-y-4 flex-1 flex flex-col">
-            <div className="flex justify-between text-xs sm:text-sm text-gray-400">
+          <img src={post.image} alt={post.caption} className="w-full h-auto max-h-[60vh] object-cover flex-shrink-0" />
+          <div className="p-3 sm:p-4 space-y-3 sm:space-y-4 flex-1 flex flex-col min-h-0">
+            <div className="flex justify-between text-xs sm:text-sm text-gray-400 flex-shrink-0">
               <span>
                 <Link to={`/Profile/${post.user_id}`}>@{post.username}</Link>
               </span>
               <span>{new Date(post.created_at).toLocaleDateString()}</span>
             </div>
-            <p className="text-base sm:text-lg">{post.caption || "Today I Walked."}</p>
-            <div className="flex justify-between mt-auto items-center pb-[0%]">
+            <p className="text-base sm:text-lg flex-shrink-0">{post.caption || "Today I Walked."}</p>
+            <div className="flex justify-between items-center mt-auto flex-shrink-0 pb-2">
               <p className="text-xs sm:text-sm text-amber-500">
                 {post.steps.toLocaleString()} steps
               </p>
               {user && user.user_id == post.user_id ? (
                 <>
-                  <div className="flex justify-end gap-3 sm:gap-4 mt-auto">
-                    <button className="cursor-pointer ">
+                  <div className="flex justify-end gap-3 sm:gap-4">
+                    <button className="cursor-pointer">
                       <Post post={post} setPosts={setPosts} />
                     </button>
                     <button
                       onClick={() => handleDelete(post.id)}
-                      className="cursor-pointer pb-2"
+                      className="cursor-pointer"
                     >
                       <Trash className="text-red-500" />
                     </button>
                   </div>
                 </>
               ) : (
-                <div className="flex justify-end gap-3 sm:gap-4 mt-auto">
+                <div className="flex justify-end gap-3 sm:gap-4">
                   <button
                     className="cursor-pointer"
                     onClick={() => toggleLike(post, setPosts)}
