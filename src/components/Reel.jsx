@@ -40,7 +40,7 @@ function Reel({ posts, user, handlePostDelete, setPosts }) {
   }
   return (
     // {/* https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll_snap/Basic_concepts*/}
-    <div className="w-full sm:w-5/6 md:w-4/6 lg:w-2/3 bg-stone-900 rounded-xl sm:rounded-2xl overflow-y-scroll snap-y snap-mandatory border border-orange-500 no-scrollbar h-full">
+    <div className="w-full sm:w-5/6 md:w-4/6 lg:w-2/3 bg-stone-900 rounded-xl sm:rounded-2xl overflow-y-scroll snap-y snap-mandatory border border-orange-500 no-scrollbar h-[calc(100vh-9rem)] sm:h-[calc(100vh-10rem)]">
       {posts.map((post) => (
         <section
           key={post.id}

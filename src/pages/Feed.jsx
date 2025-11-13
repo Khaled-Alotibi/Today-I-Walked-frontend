@@ -24,7 +24,7 @@ function Feed({ user }) {
     getAllPosts();
   }, []);
   return (
-    <div className="h-screen w-screen text-amber-100 flex justify-center items-center overflow-hidden">
+    <div className="min-h-screen w-screen text-amber-100 flex justify-center items-center overflow-hidden pt-16 sm:pt-20 pb-20 sm:pb-20">
       <div className="flex w-full sm:w-[95%] h-full gap-2 sm:gap-3 justify-center px-2 sm:px-0">
         <Reel posts={posts} setPosts={setPosts} />
       </div>
