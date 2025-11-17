@@ -6,8 +6,8 @@ function Landing() {
         <blockquote className="space-y-4 sm:space-y-6 md:space-y-8 max-w-2xl lg:max-w-4xl xl:max-w-5xl">
           <p className="text-lg sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed text-amber-100 px-2">
             I have <i>walked</i> myself into my best thoughts,
-            <br className="hidden sm:block" />
-            and I know of no thought so burdensome that one cannot walk away from it.
+            <br className="hidden sm:block" /> and I know of no thought so
+            burdensome that one cannot walk away from it.
             <br className="hidden sm:block" />
           </p>
           <footer className="flex items-center justify-center gap-2 sm:gap-3">
@@ -22,13 +22,13 @@ function Landing() {
         <div className="flex flex-row gap-2 sm:gap-3">
           <Link
             to="/Signup"
-            className="bg-orange-600 text-amber-100 px-3 sm:px-6 md:px-7 lg:px-9 py-2 sm:py-3 md:py-4 rounded-xl sm:rounded-2xl cursor-pointer text-xs sm:text-sm md:text-base whitespace-nowrap"
+            className="bg-orange-600 text-amber-100 px-4 sm:px-6 md:px-7 lg:px-9 py-4 sm:py-3 md:py-4 rounded-2xl sm:rounded-2xl cursor-pointer text-xs sm:text-sm md:text-base whitespace-nowrap"
           >
             Get Started
           </Link>
           <Link
             to="AboutUs"
-            className="bg-orange-600 text-amber-100 px-3 sm:px-6 md:px-7 lg:px-9 py-2 sm:py-3 md:py-4 rounded-xl sm:rounded-2xl cursor-pointer text-xs sm:text-sm md:text-base whitespace-nowrap"
+            className="bg-orange-600 text-amber-100 px-4 sm:px-6 md:px-7 lg:px-9 py-4 sm:py-3 md:py-4 rounded-2xl sm:rounded-2xl cursor-pointer text-xs sm:text-sm md:text-base whitespace-nowrap"
           >
             Learn More
           </Link>
