@@ -44,7 +44,7 @@ function Reel({ posts, user, handlePostDelete, setPosts }) {
       {posts.map((post) => (
         <section
           key={post.id}
-          className="snap-start min-h-full rounded-xl mb-2 bg-stone-900/40 flex flex-col pb-6"
+          className="snap-start min-h-full rounded-xl mb-2 bg-stone-900/40 flex flex-col pb-3"
         >
           <img src={post.image} alt={post.caption} className="w-full h-auto max-h-[60vh] object-cover flex-shrink-0" />
           <div className="p-3 sm:p-4 space-y-3 sm:space-y-4 flex-1 flex flex-col min-h-0">
